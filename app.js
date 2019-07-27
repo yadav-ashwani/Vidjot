@@ -19,15 +19,14 @@ require('./config/passport')(passport);
 //Db config
 const db = require('./config/database');
 
-// Map global promise - get rid of warning
-mongoose.Promise = global.Promise;
-
-//Connect to mongoo+se
-mongoose.connect(db.mongoURI,{
-  useNewUrlParser : true
-}).then(() => {
-    console.log('MongoDB Connected...');
-}).catch((err) => console.log(err));
+//Connect to mongoose
+mongoose.connect(db.mongoURI, {useNewUrlParser: true})
+    .then(()=>{
+        console.log('MongoDB connected!')
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 
 // View engine
 app.set('view engine','ejs');
@@ -80,7 +79,7 @@ app.get('/', (req,res) => {
 app.use('/ideas', ideas);
 app.use('/users', users);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () =>{
   console.log(`Server started on port ${port}`);
