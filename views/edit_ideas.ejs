@@ -1,0 +1,18 @@
+<% include main.ejs %>
+<% include messages.ejs %>
+<div class="card card-body" style="box-shadow : 4px 4px 3px rgba(0,0,0,0.4)">
+    <h3>Edit Video Idea</h3>
+    <form action="/ideas/<%= idea.id %>?_method=PUT" method="POST">
+       <input type="hidden" name="_method" value="PUT"/>
+       <div classs="form-group">
+           <label for="title">Title</label>
+           <input type="text" class="form-control" name="title" value="<%= idea.title%>">
+       </div>
+        <div classs="form-group">
+           <label for="details">Detail</label>
+           <textarea class="form-control" name="details"><%= idea.details%></textarea>
+       </div>
+       <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+</div>
+<% include footer.ejs %>

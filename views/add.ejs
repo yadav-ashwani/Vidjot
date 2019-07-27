@@ -1,0 +1,17 @@
+<% include main.ejs %>
+<% include messages.ejs %>
+<div class="card card-body" style="box-shadow : 4px 4px 3px rgba(0,0,0,0.4)">
+    <h3>Video Idea</h3>
+    <form action="/ideas" method="POST">
+       <div classs="form-group">
+           <label for="title">Title</label>
+           <input type="text" class="form-control" name="title" required>
+       </div>
+        <div classs="form-group">
+           <label for="details">Detail</label>
+           <textarea class="form-control" name="details" required></textarea>
+       </div>
+       <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+</div>
+<% include footer.ejs %>

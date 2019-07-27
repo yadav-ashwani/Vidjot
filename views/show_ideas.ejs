@@ -1,0 +1,21 @@
+<% include main.ejs %>
+<% include messages.ejs %>
+ <% if(ideas !== 'undefined'){ %>
+
+   <% ideas.forEach(idea => { %>
+    <div class="card card-body mt-4" style="color : black">
+        <h4><%= idea.title %></h4>
+        <p><%= idea.details %></p>
+        <a class="btn btn-dark btn-block mb-2" href="/ideas/edit/<%= idea.id %>">Edit</a>
+        <form method="post" action="/ideas/<%= idea.id %>?_method=DELETE">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" class="btn btn-danger btn-block" value="Delete">
+        </form>
+    </div>
+   <% }) %>
+  <% }else{ %>
+  <p>No video idea left</p>
+<% } %>
+</div>
+
+<% include footer.ejs %>

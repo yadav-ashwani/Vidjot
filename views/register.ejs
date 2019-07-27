@@ -1,0 +1,34 @@
+<% include main.ejs %>
+<% include messages.ejs %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card card-body">
+                <img class="logo" src="/img/logo.png">
+                <h3 style="margin : 0 auto;">
+                    Account Register
+                </h3>
+                <form method="POST" action="/users/register">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name"  value="<%= typeof name !== 'undefined' ? name : '' %>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" value="<%= typeof email !== 'undefined' ? email : '' %>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" value="<%= typeof password !== 'undefined' ? password : '' %>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">Confirm Password</label>
+                        <input type="password" name="password2" value="<%= typeof password2 !== 'undefined' ? password2 : '' %>" class="form-control">
+                    </div>
+                    <button type = "submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<% include footer.ejs %>
